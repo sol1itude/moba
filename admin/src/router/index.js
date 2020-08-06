@@ -54,25 +54,51 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  // 分类
   {
     path: '/categories',
     component: Layout,
     redirect: '/categories/create',
-    name: 'Categories',
     meta: { title: '分类', icon: 'el-icon-s-help' },
     children: [
       {
         path: '/categories/create',
-        name: 'Categories',
-        component: () => import('@/views/categories/Create.vue'),
+        component: () => import('@/views/Category/Edit.vue'),
         meta: { title: '新建分类', icon: 'table' }
       },
       {
+        path: '/categories/edit/:id',
+        component: () => import('@/views/Category/Edit.vue'),
+        props: true
+      },
+      {
         path: '/categories/list',
-        name: 'Categories',
-        component: () => import('@/views/categories/List.vue'),
+        component: () => import('@/views/Category/List.vue'),
         meta: { title: '分类列表', icon: 'tree' }
+      }
+    ]
+  },
+  // 物品
+  {
+    path: '/items',
+    component: Layout,
+    redirect: '/items/create',
+    meta: { title: '物品', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: '/items/create',
+        component: () => import('@/views/Item/Edit.vue'),
+        meta: { title: '新建物品', icon: 'table' }
+      },
+      {
+        path: '/items/edit/:id',
+        component: () => import('@/views/Item/Edit.vue'),
+        props: true
+      },
+      {
+        path: '/items/list',
+        component: () => import('@/views/Item/List.vue'),
+        meta: { title: '物品列表', icon: 'tree' }
       }
     ]
   },
