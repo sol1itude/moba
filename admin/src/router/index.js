@@ -103,6 +103,56 @@ export const constantRoutes = [
     ]
   },
 
+  // 英雄
+  {
+    path: '/heros',
+    component: Layout,
+    redirect: '/heros/create',
+    meta: { title: '英雄', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: '/heros/create',
+        component: () => import('@/views/Hero/Edit.vue'),
+        meta: { title: '新建英雄', icon: 'table' }
+      },
+      {
+        path: '/heros/edit/:id',
+        component: () => import('@/views/Hero/Edit.vue'),
+        props: true
+      },
+      {
+        path: '/heros/list',
+        component: () => import('@/views/Hero/List.vue'),
+        meta: { title: '英雄列表', icon: 'tree' }
+      }
+    ]
+  },
+
+  // 文章管理
+  {
+    path: '/articles',
+    component: Layout,
+    redirect: '/articles/create',
+    meta: { title: '文章', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: '/articles/create',
+        component: () => import('@/views/Article/Edit.vue'),
+        meta: { title: '新建文章', icon: 'table' }
+      },
+      {
+        path: '/articles/edit/:id',
+        component: () => import('@/views/Article/Edit.vue'),
+        props: true
+      },
+      {
+        path: '/articles/list',
+        component: () => import('@/views/Article/List.vue'),
+        meta: { title: '文章列表', icon: 'tree' }
+      }
+    ]
+  },
+
   {
     path: '/form',
     component: Layout,
