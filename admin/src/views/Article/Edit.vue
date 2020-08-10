@@ -69,7 +69,7 @@ export default {
                 res = this.$http.put(`rest/articles/${this.id}`, this.model);
             }
             this.$message({
-                type: 'success',
+                type: 'success', 
                 message: '保存成功'
             });
             this.$router.push('/articles/list')
